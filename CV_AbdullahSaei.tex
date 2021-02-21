@@ -1,0 +1,160 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CV Abdullah Saei 06/2020 %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[10pt,a4paper]{altacv}
+
+%Layout
+\geometry{left=1cm,right=9cm,marginparwidth=6.8cm,marginparsep=1.2cm,top=1.25cm,bottom=1.25cm,footskip=2\baselineskip}
+
+%Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{hyperref}
+
+%Colors
+\definecolor{accent}{HTML}{000e17}
+\definecolor{heading}{HTML}{0000FF}
+\definecolor{emphasis}{HTML}{696969}
+\definecolor{body}{HTML}{01415f}
+
+\colorlet{heading}{heading}
+\colorlet{accent}{accent}
+\colorlet{emphasis}{emphasis}
+\colorlet{body}{body}
+
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+%
+
+\begin{document}
+\name{Abdullah Saei}
+\tagline{}
+\photo{2.5cm}{photo.pdf}
+\personalinfo{
+    \printinfo{\faBirthdayCake}{10.10.1993}
+    \printinfo{\faPhone \hspace{0.1em} \faWhatsapp}{+4915758330545}
+    \email{abdullah.saei@tuhh.de}
+    \location{Hamburg, DE}
+    \github{https://abdullahsaei.github.io}
+    \linkedin{linkedin.com/in/abdullahsaei}
+}
+
+%
+
+\begin{fullwidth}
+\makecvheader
+\end{fullwidth}
+
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Experience %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection[page1sidebar]{Experience}
+
+%%%%%%%%%%%%%
+%Experience 1
+%%%%%%%%%%%%%
+
+\cvevent{Work student Technical Support}{2CP GmbH}{Oct 2018 -- Present}{Hamburg, DE}
+
+\begin{itemize}
+    \setlength{\itemindent}{0.5em}
+    \item[--] \small{C/C++ Embedded Programming } 
+    \item[--] \small{Python and Qt5 GUI development}
+    \item[--] \small{IT and Networks Support}
+\end{itemize}
+
+\medskip
+
+%%%%%%%%%%%%%
+%Experience 2
+%%%%%%%%%%%%%
+
+\cvevent{Research Assistant (HiWi)}{ComNets Institute, Hamburg University of Technology (TUHH)}{Feb 2018 –- Dec 2018}{Hamburg, DE}
+
+\begin{itemize}
+    \setlength{\itemindent}{0.5em}
+    \item[--]   \small{C/C++ Embedded development for Wireless Networks}
+    \item[--]   \small{Matlab data analysis and data visualization}
+    \item[--]   \small{Research and Implementation of TSCH Protocol}
+    \item[--]   \small{Scripting to automate testbeds}
+\end{itemize}
+
+\medskip
+
+
+%%%%%%%%%%%%%
+%Experience 3
+%%%%%%%%%%%%%
+
+\cvevent{Professional Services Engineer}{Universal Advanced Solutions}{Dec 2017 –- Sept 2018}{Cairo, EG}
+
+\begin{itemize}
+    \setlength{\itemindent}{0.5em}
+    \item[--]   \small{Telecom technical support}
+    \item[--]   \small{Maintanince and Services for customers}
+\end{itemize}
+
+\medskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Projects %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cvsection{Internships}
+
+%%%%%%%%%%%%%
+%Project 1
+%%%%%%%%%%%%%
+
+\cvsubsection{Trainings}
+\begin{tabular}{rll}
+%   \small{
+    Dec 2016 & Android Development MAL \\
+   & \color{accent}{Google/MCIT}\hspace{1em} \faMapMarker \hspace{0.2em}  Smart Village, EG\\
+   &&\\
+   May 2017 & Fusion Splicers Service Maintenance Level I, II, III\\
+   & \color{accent}{SUMITOMO Electric Europe Limited} \hspace{0.5em}\faMapMarker \hspace{0.2em} Dubai, UAE
+    
+\end{tabular}
+
+\vspace{0.5em}
+\divider
+
+%%%%%%%%%%%%%%
+%Project 2
+%%%%%%%%%%%%%
+\cvsubsection{Courses}
+\begin{tabular}{rll}
+% \small{
+\faCalendar  \hspace{0.5em} Date & \hspace{5em} \faGraduationCap\hspace{0.5em} Title\\
+Mar 2020 & Erasmus+ EPIC Program \\
+Jun 2016 & Embedded Systems Diploma \\
+Jan 2016 & CCNA Networking\\
+Jul 2012 & Communication Skills and Human Development
+% }
+\end{tabular}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Interests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \cvsection{Interests}
+\hfuzz=53pt
+ \wheelchart{1.5cm}{0.5cm}{%
+   10/10em/accent!30/Data analysis,
+   25/9em/accent!60/Networking,
+   5/13em/accent!10/Android development,
+   20/15em/accent!40/Hardware,
+   30/9em/accent/Programming,
+   5/8em/accent!20/Web development
+ }
+
+
+%%New Page
+% \clearpage
+
+
+
+
+\end{document}
