@@ -29,7 +29,7 @@
 
 \colorlet{accent}{blue!70!black}
 \colorlet{heading}{black}
-\colorlet{emphasis}{black}
+\colorlet{emphasis}{black} %% not functioning search "gray!30!black"
 \colorlet{body}{black!80!white}
 \newcommand{\itemmarker}{{\small\textbullet}}
 \newcommand{\ratingmarker}{\faCircle}
@@ -126,22 +126,12 @@
 }
 
 \newcommand{\cvevent}[4]{%
-  {\large\color{emphasis}#1\par}
+  {\large\color{gray!30!black}#1\par}
   \smallskip
   \textbf{\color{accent}#2}\par
   \smallskip
   {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
   \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
-  \medskip
-}
-
-\newcommand{\cveventvtwo}[4]{%
-  {\large\color{emphasis}#1\par}
-  \smallskip
-  \textbf{\color{accent}#2}\par
-  \smallskip
-  {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
-  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faGraduationCap\hspace{0.5em}#4}}\par}
   \medskip
 }
 
@@ -158,22 +148,25 @@
 }
 
 \newcommand{\cvskill}[2]{%
-\textcolor{emphasis}{\textbf{#1}}\hfill
+\textcolor{gray!30!black}{\textbf{#1}}\hfill
 \foreach \x in {1,...,5}{%
   \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{accent}}\faCircle}}\par%
 }
 
 % Adapted from @Jake's answer at http://tex.stackexchange.com/a/82729/226
 \newcommand{\wheelchart}[3]{%
-    \begingroup\centering
+    \begingroup
+    \centering
     \def\innerradius{#2}%
     \def\outerradius{#1}%
+    
     % Calculate total
     \pgfmathsetmacro{\totalnum}{0}%
     \foreach \value/\colour/\name in {#3} {%
         \pgfmathparse{\value+\totalnum}%
         \global\let\totalnum=\pgfmathresult%
     }%
+    \hspace{-50px}
     \begin{tikzpicture}
 
       % Calculate the thickness and the middle line of the wheel
