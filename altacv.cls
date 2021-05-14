@@ -1,9 +1,14 @@
-\NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{altacv}[2017/04/30 AltaCV v1.1.3, yet another alternative class for a résumé/curriculum vitae.]
+% cSpell:disable %
+%-------------------------------------------------------------------------------
+%                Identification
+%-------------------------------------------------------------------------------
+\ProvidesClass{altacv}[2017/02/05 v1.6.1 Awesome Curriculum Vitae Class]
+\NeedsTeXFormat{LaTeX2e}
 
 %% v1.1: Optionally load academicons
 \newif\if@academicons
 \DeclareOption{academicons}{\@academiconstrue}
+
 %% v1.1.3: Choice of round/square photo
 \newif\if@normalphoto
 \DeclareOption{normalphoto}{\@normalphototrue}
@@ -27,10 +32,6 @@
 
 \RequirePackage{xcolor}
 
-\colorlet{accent}{blue!70!black}
-\colorlet{heading}{black}
-\colorlet{emphasis}{black} %% not functioning search "gray!30!black"
-\colorlet{body}{black!80!white}
 \newcommand{\itemmarker}{{\small\textbullet}}
 \newcommand{\ratingmarker}{\faCircle}
 
@@ -74,7 +75,11 @@
 
 \newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{#1}\hspace{0.5em}#2\hspace{2em}}}
 
-\newcommand{\name}[1]{\def\@name{#1}}
+\newcommand*{\name}[2]{\def\@firstname{#1}\def\@lastname{#2}}
+\newcommand*{\firstname}[1]{\def\@firstname{#1}}
+\newcommand*{\lastname}[1]{\def\@lastname{#1}}
+\newcommand*{\familyname}[1]{\def\@lastname{#1}}
+\def\@familyname{\@lastname}
 \newcommand{\tagline}[1]{\def\@tagline{#1}}
 \newcommand{\photo}[2]{\def\@photo{#2}\def\@photodiameter{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\printinfo{\emailsymbol}{#1}}}
@@ -82,24 +87,32 @@
 \newcommand{\phone}[1]{\printinfo{\phonesymbol \hspace{0.1cm}Phone: }{#1}}
 \newcommand{\homepage}[1]{\href{#1}{\printinfo{\homepagesymbol\hspace{0.1cm}\textcolor{heading}{Blog}}}}
 \newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
-\newcommand{\linkedin}[1]{\href{https://#1}{\printinfo{\linkedinsymbol}{#1}}}
-\newcommand{\github}[1]{\href{#1}{\printinfo{\githubsymbol   \hspace{0.1cm} \textcolor{heading}{Portfolio}}}}
+\newcommand{\linkedin}[1]{\href{https://linkedin.com#1}{\printinfo{\linkedinsymbol}{#1}}}
+\newcommand{\github}[1]{\href{https://#1}{\printinfo{\githubsymbol   \hspace{0.1cm} \textcolor{heading}{#1}}}}
 \newcommand{\scholar}[1]{\href{#1}{\printinfo{\scholarsymbol \hspace{0.1cm} \textcolor{heading}{Publications}}}}
 \newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
+\newcommand{\mobwhats}[1]{\printinfo{\faPhone}{\printinfo{\faWhatsapp}{#1}}}
+\newcommand{\birthday}[1]{\printinfo{\faBirthdayCake}{#1}}
 
 \newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
 
+\newcommand*{\headerfirstnamestyle}[1]{{\fontsize{32pt}{1em}\textnormal{#1}}}
+\newcommand*{\headerlastnamestyle}[1]{{\fontsize{32pt}{1em}\bfseries\color{accent} #1}}
+\newcommand{\acvHeaderNameDelim}{\space}
+
 \newcommand{\makecvheader}{%
   \begingroup
-    \ifdef{\@photodiameter}{\begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}}{}%
-    \raggedright\color{heading}%
-    {\Huge\bfseries\MakeUppercase{\@name}\par}
-    \medskip
-    {\large\bfseries\color{accent}\@tagline\par}
-    \medskip
-    {\footnotesize\large\textup\@personalinfo\par}
-    \ifdef{\@photodiameter}{%
+    \ifdef{\@photodiameter}{
+      \begin{minipage}{
+        \dimexpr\linewidth-\@photodiameter-2em}}{}%
+        \raggedright\color{heading}%
+        \headerfirstnamestyle{\@firstname}\headerlastnamestyle{{}\acvHeaderNameDelim\@lastname}\\
+        \medskip
+        {\large\color{accent}\@tagline\par}
+        \medskip
+        {\footnotesize\large\textup\@personalinfo\par}
+        \ifdef{\@photodiameter}{%
     \end{minipage}\hfill%
     \begin{minipage}{\@photodiameter}
     \if@normalphoto
@@ -113,10 +126,17 @@
 
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
 
+\newcommand\threeletters[3]{%
+    \textcolor{heading}{#1#2#3}%
+}
+\newcommand*\sectioncolor[1]{%
+    \threeletters #1%
+}
+
 \newcommand{\cvsection}[2][]{%
   \bigskip%
   \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}% 
-  {\color{heading}\LARGE\bfseries\MakeUppercase{#2}}\\[-1ex]%
+  {\color{heading}\LARGE\bfseries\color{accent}\sectioncolor{#2}}\\[-1ex]%
   {\color{heading}\rule{\linewidth}{2pt}\par}\medskip
 }
 
@@ -126,12 +146,12 @@
 }
 
 \newcommand{\cvevent}[4]{%
-  {\large\color{gray!30!black}#1\par}
+  {\large\color{accent}#1\par}
   \smallskip
-  \textbf{\color{accent}#2}\par
+  \textbf{\color{emphasis}#2}\par
   \smallskip
   {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
-  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\hfill\faMapMarker\hspace{0.5em}#4}}\par}
   \medskip
 }
 
@@ -148,7 +168,7 @@
 }
 
 \newcommand{\cvskill}[2]{%
-\textcolor{gray!30!black}{\textbf{#1}}\hfill
+\textcolor{accent}{\textbf{#1}}\hfill
 \foreach \x in {1,...,5}{%
   \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{accent}}\faCircle}}\par%
 }

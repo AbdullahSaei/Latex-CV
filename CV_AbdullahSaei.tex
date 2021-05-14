@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% CV Abdullah Saei 06/2020 %%%%%%
+%%% CV Abdullah Saei 05/2021 %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \PassOptionsToPackage{dvipsnames}{xcolor}
@@ -15,12 +15,13 @@
 \usepackage{hyperref}
 
 %Colors
+\definecolor{awesome-skyblue}{HTML}{0395DE}
 \definecolor{accent}{HTML}{000e17}
 \definecolor{heading}{HTML}{0000FF}
-\definecolor{emphasis}{HTML}{696969}
+\definecolor{emphasis}{HTML}{606060}
 \definecolor{body}{HTML}{01415f}
 
-\colorlet{heading}{heading}
+\colorlet{heading}{awesome-skyblue}
 \colorlet{accent}{accent}
 \colorlet{emphasis}{emphasis}
 \colorlet{body}{body}
@@ -31,16 +32,19 @@
 %
 
 \begin{document}
-\name{Abdullah Saei}
-\tagline{}
-\photo{2.5cm}{photo.pdf}
+\photo{3cm}{photo.pdf}
+\name{Abdullah}{Saei}
+\tagline{M.Sc. Communications Engineer}
 \personalinfo{
-    \printinfo{\faBirthdayCake}{10.10.1993}
-    \printinfo{\faPhone \hspace{0.1em} \faWhatsapp}{+4915758330545}
-    \email{abdullah.saei@tuhh.de}
-    \location{Hamburg, DE}
-    \github{https://abdullahsaei.github.io}
-    \linkedin{linkedin.com/in/abdullahsaei}
+    \setlength{\tabcolsep}{-0.1em}
+    \begin{tabular}{lll}
+        \birthday{10.10.1993} &
+        \mobwhats{+4915758330545} &
+        \email{abdullah.saei@tuhh.de} \\
+        \location{Hamburg, DE} &
+        \github{abdullahsaei.github.io} &
+        \linkedin{/in/abdullahsaei}
+    \end{tabular}
 }
 
 %
@@ -117,10 +121,10 @@
 \begin{tabular}{rll}
     %   \small{
     Dec 2016 & Android Development MAL                                                                                 \\
-             & \color{accent}{Google/MCIT}\hspace{1em} \faMapMarker \hspace{0.2em}  Smart Village, EG                  \\
+             & \color{accent}{Google/MCIT}\hfill \faMapMarker \hspace{0.2em}  Smart Village, EG                  \\
              &                                                                                                       & \\
     May 2017 & Fusion Splicers Service Maintenance Level I, II, III                                                    \\
-             & \color{accent}{SUMITOMO Electric Europe Limited} \hspace{0.5em}\faMapMarker \hspace{0.2em} Dubai, UAE
+             & \color{accent}{SUMITOMO Electric Europe Ltd} \hfill\faMapMarker \hspace{0.2em} Dubai, UAE
 \end{tabular}
 
 \vspace{0.5em}
@@ -130,9 +134,10 @@
 %Project 2
 %%%%%%%%%%%%%
 \cvsubsection{Courses}
-\begin{tabular}{rll}
+\begin{tabular}{rl}
     % \small{
     \faCalendar  \hspace{0.5em} Date & \hspace{5em} \faGraduationCap\hspace{0.5em} Title \\
+    &\\
     Mar 2020                         & Erasmus+ EPIC Program                             \\
     Jun 2016                         & Embedded Systems Diploma                          \\
     Jan 2016                         & CCNA Networking                                   \\
@@ -142,14 +147,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Interests %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\cvsection{Interests}
-\wheelchart{1.5cm}{0.5cm}{%
-    10/10em/accent!30/Data analysis,
-    20/9em/accent!60/Networking,
-    20/15em/accent!40/Hardware,
-    25/9em/accent/Programming,
-    10/8em/accent!20/Web development
-}
+% \cvsection{Interests}
+% \wheelchart{1.5cm}{0.5cm}{%
+%     10/10em/awesome-skyblue!30/Data analysis,
+%     20/9em/awesome-skyblue!60/Networking,
+%     20/15em/awesome-skyblue!40/Hardware,
+%     25/9em/awesome-skyblue/Programming,
+%     10/8em/awesome-skyblue!20/Web development
+% }
 
 
 %%New Page
