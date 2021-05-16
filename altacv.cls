@@ -87,7 +87,7 @@
 \newcommand{\phone}[1]{\printinfo{\phonesymbol \hspace{0.1cm}Phone: }{#1}}
 \newcommand{\homepage}[1]{\href{#1}{\printinfo{\homepagesymbol\hspace{0.1cm}\textcolor{heading}{Blog}}}}
 \newcommand{\twitter}[1]{\printinfo{\twittersymbol}{#1}}
-\newcommand{\linkedin}[1]{\href{https://linkedin.com#1}{\printinfo{\linkedinsymbol}{#1}}}
+\newcommand{\linkedin}[1]{\href{https://#1}{\printinfo{\linkedinsymbol}{#1}}}
 \newcommand{\github}[1]{\href{https://#1}{\printinfo{\githubsymbol   \hspace{0.1cm} \textcolor{heading}{#1}}}}
 \newcommand{\scholar}[1]{\href{#1}{\printinfo{\scholarsymbol \hspace{0.1cm} \textcolor{heading}{Publications}}}}
 \newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
